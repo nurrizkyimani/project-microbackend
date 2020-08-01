@@ -5,8 +5,12 @@ require('dotenv').config()
 
 const AuthRoute = require('./Auth/Auth.route')
 
+const connectMongo = require('./Utils/init_mongodb')
+
 const app = express()
 app.use(morgan('dev'))
+
+connectMongo()
 
 app.get('/', async (res, req, next) => {
     res.send(`Home`)
