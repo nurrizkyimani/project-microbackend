@@ -2,6 +2,7 @@ const JWT = require('jsonwebtoken');
 const createError = require('http-errors');
 
 
+
 module.exports = {
 	signAccessToken: (userId) => {
 		return new Promise(function(resolve, reject) {
@@ -59,5 +60,17 @@ module.exports = {
       })
       
       })
-    },
+  },
+  verifyRefreshToken: (refreshToken) => {
+    return new Promise((resolve, reject) => {
+      JWT.verify(refreshToken, process.env.REFERSH_TOKEN_SECRET, function (err, payload) {
+        if (err) return reject(createError.Unauthorized())
+        const userId = payload.aud
+
+        resolve(userId)
+      })
+
+   
+    })
+  }
 };
