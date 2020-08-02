@@ -5,7 +5,9 @@ require('dotenv').config()
 const AuthRoute = require('./Auth/Auth.route')
 
 const connectMongo = require('./Utils/init_mongodb')
-const {verifiedAccessToken} = require('./Utils/jwt_utils')
+const { verifiedAccessToken } = require('./Utils/jwt_utils')
+
+require('./Utils/init_redis')
 
 const app = express()
 app.use(morgan('dev'))
