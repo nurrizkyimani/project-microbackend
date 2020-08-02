@@ -1,49 +1,45 @@
-const express = require('express')
-const router = express.Router()
-const User = require('../Model/User.model')
-const createHttpError = require('http-errors')
-
+const express = require('express');
+const router = express.Router();
+const User = require('../Model/User.model');
+const createHttpError = require('http-errors');
+const { valschema } = require('../Utils/validation');
 
 router.post('/register', async (req, res, next) => {
-  try {
-    const { username, password } = req.body
+	try {
+		const { username, password } = req.body;
 
-    console.log(username);
-    if(!username || !password) throw createHttpError.BadRequest()
+		const result = await valschema.validateAsync({ username, password });
 
-    const doesExist = await User.findOne({ username: username })
-      if (doesExist)
-        throw createError.Conflict(`${username} is already been registered`)
+		console.log(username);
+		if (!username || !password) throw createHttpError.BadRequest();
 
-    
-    
-    const user = new User({ username, password })
-    const userdone = await user.save()
-    console.log(user);
+		const doesExist = await User.findOne({ username: result.username });
+		if (doesExist) throw createHttpError.Conflict(`${result.email} is already been registered`);
 
-    res.send(userdone)
+		const user = new User(result);
+		const userdone = await user.save();
 
-  } catch (error) {
-    console.log(`this is error : ${error}`);
-    next(error)
-  }
-
-})
-
+		res.send({
+			success: true,
+			message: userdone
+		});
+	} catch (error) {
+		if (error.isJoi === true) error.status = 422;
+		console.log(`this is error : ${error}`);
+		next(error);
+	}
+});
 
 router.post('/refresh-token', async (req, res, next) => {
-  res.send('refresh token route')
-})
+	res.send('refresh token route');
+});
 
 router.post('/login', async (req, res, next) => {
-  res.send('login route')
-})
+	res.send('login route');
+});
 
 router.delete('/logout', async (req, res, next) => {
-  res.send('res send ')
-})
+	res.send('res send ');
+});
 
-
-
-
-module.exports = router
+module.exports = router;
