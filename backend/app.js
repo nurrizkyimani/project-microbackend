@@ -5,6 +5,7 @@ require('dotenv').config()
 const AuthRoute = require('./Auth/Auth.route')
 
 const connectMongo = require('./Utils/init_mongodb')
+const {verifiedAccessToken} = require('./Utils/jwt_utils')
 
 const app = express()
 app.use(morgan('dev'))
@@ -13,6 +14,9 @@ app.use(express.urlencoded({ extended: true }))
 
 connectMongo()
 
+app.get('/',verifiedAccessToken, async (req, res, next) => {
+  res.send('Hello from express.')
+})
 
 app.use('/auth', AuthRoute)
 
