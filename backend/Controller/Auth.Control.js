@@ -80,7 +80,9 @@ module.exports = {
 		try {
 			const { refresh_token } = req.body;
 			if (!refresh_token) throw createError.BadRequest();
-			const userId = await verifyRefreshToken(refresh_token);
+      const userId = await verifyRefreshToken(refresh_token);
+      
+      console.log(userId);
 
 			client.DEL(userId, (err, val) => {
         if (err) {
