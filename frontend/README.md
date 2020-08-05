@@ -1,68 +1,104 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Gatsby Starter Tailwind
 
-## Available Scripts
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors)
 
-In the project directory, you can run:
+<div align="center">
+  <img src="https://image.ibb.co/cJjPN7/gatsby_tailwind.png" alt="Gatsby and Tailwind CSS logos">
+</div>
 
-### `npm start`
+<div align="center">
+  <strong>A <a href="https://www.gatsbyjs.org/">Gatsby</a> starter styled using <a href="https://tailwindcss.com/">Tailwind CSS</a>, a utility-first CSS framework.</strong><br />
+  Uses <a href="https://www.purgecss.com/">PurgeCSS</a> to remove unused CSS.<br />
+  Illustrations by <a href="https://undraw.co/">unDraw</a>.
+  <br />
+  <br />
+</div>
+  
+![alt text](https://image.ibb.co/jv6FC7/gatsby_starter_tailwind.png "Screenshot of Gatsby Starter Tailwind homepage")
+  
+<p align="center">View demo <a href="https://gatsby-starter-tailwind.oddstronaut.com/">here</a>.</p>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## What is Tailwind CSS?
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+> "Tailwind CSS is a utility-first CSS framework for rapidly building custom user interfaces."
+> –[Tailwind CSS](https://tailwindcss.com)
 
-### `npm test`
+## What is Gatsby?
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> "Gatsby is a free and open source framework based on React that helps developers build blazing fast websites and apps." -[Gatsby](https://www.gatsbyjs.org/)
 
-### `npm run build`
+## Get started
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Install the Gatsby CLI:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```sh
+npm i --global gatsby-cli
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Create a new Gatsby project using this starter:
 
-### `npm run eject`
+```sh
+gatsby new my-new-website https://github.com/taylorbryant/gatsby-starter-tailwind
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Build a stylesheet from your Tailwind CSS config and run the project in development mode:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+cd my-new-website
+npm run develop
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Format and lint
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- `npm run analyze` - See what ESLint and Prettier can fix
+- `npm run fix` - Run Prettier and ESLint with the `--fix` option
 
-## Learn More
+## Build your site
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Use `npm run build` to build your site for production.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Deployment
 
-### Code Splitting
+### Netlify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/taylorbryant/gatsby-starter-tailwind)
 
-### Analyzing the Bundle Size
+## Resources
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- [Gatsby documentation](https://www.gatsbyjs.org/docs/)
+- [Tailwind documentation](https://tailwindcss.com/docs/what-is-tailwind/)
+- [Prettier documentation](https://prettier.io/docs/en/index.html)
+- [ESLint documentation](https://eslint.org/docs/user-guide/configuring)
 
-### Making a Progressive Web App
+## License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+[MIT](https://github.com/taylorbryant/gatsby-starter-tailwind/blob/master/LICENSE.md)
 
-### Advanced Configuration
+## How you can help
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Enjoying Gatsby Starter Tailwind and want to help? You can:
 
-### Deployment
+- [Create an issue](https://github.com/taylorbryant/gatsby-starter-tailwind/issues/new) with some constructive criticism
+- [Submit a pull request](https://github.com/taylorbryant/gatsby-starter-tailwind/compare) with some improvements to the project
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## Contributors
 
-### `npm run build` fails to minify
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table>
+  <tr>
+    <td align="center"><a href="http://impuls.dev"><img src="https://avatars3.githubusercontent.com/u/8146736?v=4" width="100px;" alt="impulse"/><br /><sub><b>impulse</b></sub></a><br /><a href="https://github.com/taylorbryant/gatsby-starter-tailwind/commits?author=impulse" title="Code">💻</a></td>
+    <td align="center"><a href="https://gandreadis.com"><img src="https://avatars3.githubusercontent.com/u/5272244?v=4" width="100px;" alt="Georgios Andreadis"/><br /><sub><b>Georgios Andreadis</b></sub></a><br /><a href="https://github.com/taylorbryant/gatsby-starter-tailwind/commits?author=gandreadis" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/altruisticsoftware"><img src="https://avatars3.githubusercontent.com/u/12105346?v=4" width="100px;" alt="Chris"/><br /><sub><b>Chris</b></sub></a><br /><a href="https://github.com/taylorbryant/gatsby-starter-tailwind/commits?author=altruisticsoftware" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/dalwadani"><img src="https://avatars1.githubusercontent.com/u/4618082?v=4" width="100px;" alt="Dhaifallah Alwadani"/><br /><sub><b>Dhaifallah Alwadani</b></sub></a><br /><a href="https://github.com/taylorbryant/gatsby-starter-tailwind/commits?author=dalwadani" title="Code">💻</a></td>
+    <td align="center"><a href="http://nigelball.org"><img src="https://avatars2.githubusercontent.com/u/815408?v=4" width="100px;" alt="Nigel Ball"/><br /><sub><b>Nigel Ball</b></sub></a><br /><a href="#ideas-nigelb135" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/taylorbryant/gatsby-starter-tailwind/commits?author=nigelb135" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/monte-hayward"><img src="https://avatars3.githubusercontent.com/u/3780422?v=4" width="100px;" alt="Monte Hayward"/><br /><sub><b>Monte Hayward</b></sub></a><br /><a href="https://github.com/taylorbryant/gatsby-starter-tailwind/commits?author=monte-hayward" title="Code">💻</a></td>
+    <td align="center"><a href="https://lukebennett.com.au"><img src="https://avatars0.githubusercontent.com/u/3422401?v=4" width="100px;" alt="Luke Bennett"/><br /><sub><b>Luke Bennett</b></sub></a><br /><a href="https://github.com/taylorbryant/gatsby-starter-tailwind/commits?author=lukebennett88" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
