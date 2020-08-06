@@ -24,7 +24,12 @@ module.exports = {
 			const savedUser = await user.save();
 
 			const accessToken = await signAccessToken(savedUser.id);
-			const refreshToken = await signRefreshToken(saveUser.id);
+			const refreshToken = await signRefreshToken(savedUser.id);
+
+			// res.cookie('token', accessToken, { httpOnly: true, maxAge: 86400 });
+			res.cookie("token", accessToken, {maxAge: 86400 })
+
+			console.log('this is cookei');
 
 			res.send({
 				success: true,
@@ -48,6 +53,11 @@ module.exports = {
 			const access_token = await signAccessToken(userId);
 			const newrefreshToken = await signRefreshToken(userId);
 
+			res.cookie('token', accessToken, { httpOnly: true });
+
+			// res.cookie('token', accessToken, { httpOnly: true, maxAge: 86400 });
+			
+
 			res.send({ access_token, refresh_token: newrefreshToken });
 		} catch (error) {
 			console.log(error);
@@ -69,6 +79,10 @@ module.exports = {
 
 		const access_token = await signAccessToken(userexist.id);
 		const refresh_token = await signRefreshToken(userexist.id);
+
+		res.cookie('token', accessToken, { httpOnly: true });
+
+		// res.cookie('token', accessToken, { httpOnly: true, maxAge: 86400 });
 
 		res.send({
 			username: validateReq.username,
