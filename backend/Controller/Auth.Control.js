@@ -26,8 +26,8 @@ module.exports = {
 			const accessToken = await signAccessToken(savedUser.id);
 			const refreshToken = await signRefreshToken(savedUser.id);
 
-			// res.cookie('token', accessToken, { httpOnly: true, maxAge: 86400 });
-			res.cookie("token", accessToken, {maxAge: 86400 })
+			res.cookie('a_token', accessToken, { httpOnly: true, maxAge: 86400 });
+			res.cookie('r_token', refreshToken, { httpOnly: true, maxAge: 86400 });
 
 			console.log('this is cookei');
 
@@ -53,10 +53,7 @@ module.exports = {
 			const access_token = await signAccessToken(userId);
 			const newrefreshToken = await signRefreshToken(userId);
 
-			res.cookie('token', accessToken, { httpOnly: true });
-
-			// res.cookie('token', accessToken, { httpOnly: true, maxAge: 86400 });
-			
+			res.cookie('r_token', accessToken, { httpOnly: true, maxAge: 86400 });
 
 			res.send({ access_token, refresh_token: newrefreshToken });
 		} catch (error) {
@@ -80,9 +77,8 @@ module.exports = {
 		const access_token = await signAccessToken(userexist.id);
 		const refresh_token = await signRefreshToken(userexist.id);
 
-		res.cookie('token', accessToken, { httpOnly: true });
-
-		// res.cookie('token', accessToken, { httpOnly: true, maxAge: 86400 });
+		res.cookie('a_token', access_token, { httpOnly: true, maxAge: 86400 });
+		res.cookie('r_token', refresh_token, { httpOnly: true, maxAge: 86400 });
 
 		res.send({
 			username: validateReq.username,
@@ -94,18 +90,34 @@ module.exports = {
 		try {
 			const { refresh_token } = req.body;
 			if (!refresh_token) throw createError.BadRequest();
-      const userId = await verifyRefreshToken(refresh_token);
-      
-      console.log(userId);
+			const userId = await verifyRefreshToken(refresh_token);
+
+			console.log(userId);
 
 			client.DEL(userId, (err, val) => {
-        if (err) {
-          console.log(err.message)
-          throw createError.InternalServerError()
-        }
-        console.log(val)
-        res.sendStatus(204)
-      })
+				if (err) {
+					console.log(err.message);
+					throw createError.InternalServerError();
+				}
+				console.log(val);
+				res.sendStatus(204);
+			});
+		} catch (error) {
+			next(error);
+		}
+	},
+	get_bio: async (req, res, next) => {
+		try {
+			const a_token = req.cookies.a_token;
+		
+			console.log(a_token);
+			console.log(req.cookies);
+
+			res.send({
+				success: true,
+				message: 'bio is fetch'
+			});
+
 		} catch (error) {
 			next(error);
 		}

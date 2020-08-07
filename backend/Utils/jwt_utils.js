@@ -91,5 +91,26 @@ module.exports = {
 				resolve(userId);
 			});
 		});
+	},
+
+	verifyAccessTokenCookie: (access_token) => {
+		return new Promise((resolve, reject) => {
+			JWT.verify(access_token, process.env.REFERSH_TOKEN_SECRET, function(err, payload) {
+				if (err) return reject(createError.Unauthorized());
+				
+				client.GET(userId, (err, result) => {
+					if (err) {
+						console.log(err);
+						reject(createError.InternalServerError());
+						return;
+					}
+
+					if (result == refreshToken) return resolve(userId);
+					reject(createError.Unauthorized());
+				});
+
+				resolve(userId);
+			});
+		});
 	}
 };
