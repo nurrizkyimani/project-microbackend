@@ -4,12 +4,14 @@ const createError = require('http-errors');
 require('dotenv').config();
 const AuthRoute = require('./Auth/Auth.route');
 const BioRoute = require('./Auth/Bio.route')
+
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
 
 const connectMongo = require('./Utils/init_mongodb');
 const { verifiedAccessToken } = require('./Utils/jwt_utils');
-const cookieParser = require('cookie-parser');
-const cookieSession = require('cookie-session');
+
 
 require('./Utils/init_redis');
 
@@ -20,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
-  origin: 'http://localhost:8001',
+  origin: 'http://localhost:8000',
   credentials: true
 }));
 
